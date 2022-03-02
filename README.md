@@ -12,7 +12,7 @@
 5. 해당 data를 git에 올리기 위해
 6. add , commit , push를 이용
     ``` shell
-    $ git add [첨부할 data]
+    $ git add [첨부할 data] - 수정이 안되어있으면 에러뜸
     $ git commit -m "[설명]"
     $ git push
     ```
