@@ -19,3 +19,5 @@
 ---
 ## 과제 : 
 > git생성부터, clone, (add, commit, push) * 10, repository자체 삭제 - 5회이상 실행해보기
+
+> 22.03.04 과제중
