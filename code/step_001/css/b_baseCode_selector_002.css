@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* b_baseCode_selector_002.css */
+
+/* reset.css========================  */
+ 
+/* inherit 부모를 따라가라 */
+/* BEM 한번 보기 */
+ 
+body{margin: 0;}
+h1{margin: 0;}
+
+/* design.css======================== */
+#wrap{width: 100%;
+    height: 600px;
+    background-color: #d15754;}
+
+.content_area ul > li > a span{background-color: #acf;}
+.content_area ul ol li a span {border: 3px solid #f70;}      
+
+.content_area>ol>li:nth-child(1){color: #f00;}
+/* .content_area>ol>li{color: #f00;} */
+
+.content_area > ol li a{color: #555;}
+
+a{color: inherit;}
