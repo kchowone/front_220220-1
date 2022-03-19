@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* c_layout_code_001.css */
+
+body{margin: 0;}
+
+#wrap{
+  /* 위드 헤이트는 맥스,민보다 항상 위 */
+width: 900px; height: auto;
+min-height: 500px;
+max-height: 3000px;
+margin: 0 auto;
+background-color: pink;}
+
+.box{
+width: 600px; height: 600px;
+background-color: #95d6a4;
+margin: 0 auto;}
+
+/* ---------------------------- */
+.box_01 > div {width: 600px; height: 200px;}
+.box_01 > .inner_01{background-color: #456ea2;}
+.box_01 > .inner_02{background-color: #fff9eb;}
+.box_01 > .inner_03{background-color: #ffcf5d;}
