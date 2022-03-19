@@ -9,6 +9,7 @@ width: 900px; height: auto;
 min-height: 500px;
 max-height: 3000px;
 margin: 0 auto;
+padding-bottom: 300px;
 background-color: pink;}
 
 .box{
@@ -16,8 +17,77 @@ width: 600px; height: 600px;
 background-color: #95d6a4;
 margin: 0 auto;}
 
-/* ---------------------------- */
-.box_01 > div {width: 600px; height: 200px;}
-.box_01 > .inner_01{background-color: #456ea2;}
-.box_01 > .inner_02{background-color: #fff9eb;}
-.box_01 > .inner_03{background-color: #ffcf5d;}
+.inner_01{background-color: #456ea2;}
+.inner_02{background-color: #fff9eb;}
+.inner_03{background-color: #ffcf5d;}
+
+.inner_01 > .insert{background-color: #ffcf5d;}
+.inner_02 > .insert{background-color: #db5446;}
+.inner_03 > .insert{background-color: #456ea2;}
+
+/* -----------box_01----------------- */
+.box_01 > div {width:100%; height: 200px;}
+
+/* -------------box_02---------------- */
+.box_02 > div{float: left;width: 200px; height:100%;}
+
+/* -------------box_03---------------- */
+.box_03 > div{width: 200px; height: 50%; margin: 0 auto;}
+
+/* -------------box_04---------------- */
+.box_04{height:auto;}
+.box_04 > div{width: 100%;height: 200px;}
+.box_04 .insert{width: 60%;height: 200px; margin: 0 auto;}
+
+/* -------------box_05---------------- */
+.box_05{height: auto;}
+.box_05 > div {float: left; width: 200px; height:600px;}
+.box_05 .insert{width:100%; height: 200px;}
+/* .box_05 > .floor{float: none;clear:both;width: 100%; height: 10px; background-color:#000;} */
+
+.box_05 > .inner_01{}
+.box_05 > .inner_02 > .insert{margin-top:200px;}
+.box_05 > .inner_03 > .insert{margin-top:400px;}
+
+.box_05:after, /*구버전 */
+.box_05::after{content:"";display: block;
+  clear:both;width: 100%; height:0;}
+
+  /* 
+  * 하나의 요소 내부에, 
+  1. 여러 요소들이 모두 가로로 나열 되어있는 상태일 경우 float:left를 이용하여 처리
+  2. 하나의 요소에 float을 사용하였다면 그 형제 요소에는 모두 float을 사용.
+  3. 하지만 부모요소가 높이값이 auto라면 실제 반영되는 부모의 높이는 0가 설정되게 되어있으므로,
+  4. 부모에 가상의 어떤 존재를 생성 (마지막에 생성되는 :after) 하여, clear:both;를 적용
+  5. 단, clear:both;는 반드시 block 요소 이어야 한다.
+  tip. 어떠한 요소든 관계없이, float 기능을 사용하면(float:none 제외) 해당요소는 block처리
+  */
+
+  /* -------------box_06---------------- */
+  .box{display: none;}
+  .box_06{display: block;height: auto;}
+  .box_06 > div{width: 100%; height:  auto;}
+  .box_06 .insert{float: left;width: 230px; height: 200px;}
+  .box_06 > div:after,
+  .box_06 > div::after{content: ""; display: block; clear: both;width: 100%;height:auto;}
+
+
+  .box_06 > .inner_01 > .insert_01{;width: 230px;height: 200px; background-color:#257E4B;}
+  .box_06 > .inner_01 > .insert_02{float:right;width: 230px;height: 200px;background-color:#E59748;}
+  .box_06 > .inner_01{background-color: transparent;}
+
+
+  .box_06 > .inner_02 > .insert_01{width:230px;height: 200px ;background-color:#7CB37C;}
+  .box_06 > .inner_02 > .insert_02{width:140px;height: 200px;background-color: #52D043;}
+  .box_06 > .inner_02 > .insert_03{width:230px;height: 200px;background-color: #db5446;}
+  .box_06 > .inner_02{background-color: transparent;}
+
+  .box_06 > .inner_03 > .insert_01{ width: 370px;height: 200px; background-color: #90E64E;} 
+  .box_06 > .inner_03 > .insert_02{float: right; width: 230px;height: 200px;width: 230px; background-color:#8848C6;} 
+  .box_06 > .inner_03{background-color: transparent;}
+
+/* 
+1.float,clear
+2.pseudo-code : 가상의 코드, 의사전달코드
+3.margin,padding,border,outline   
+*/
