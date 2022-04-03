@@ -2,7 +2,9 @@
 /* reset.css */
 @import url("./variable.css");
 
-html,body{margin: 0; color: #171717;}
+html,body{margin: 0; color: #171717;
+font-family:'Noto Sans KR', sans-serif "apple-SD","myriad pro",arial,"돋음",dotum,sans-serif,;}
+
 h1,h2,h3,h4,h5,h6,
 p,pre,address,q,blockquote,
 ul,ol,li,dl,dd,dt,
@@ -19,6 +21,6 @@ header,article,section,aside,nav,footer,main,figure,figcaption {display: block;}
 
 @supports (color: var(--color-black)){
   
-html,body{color:var(--color-black);}
-
+html,body{color:var(--color-black);
+font-family: var(--font-set);}
 }

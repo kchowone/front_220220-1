@@ -1,0 +1,27 @@
+/* #slideBox============================= */
+#slideBox{width:100%; height:600px;
+  padding-top:100px;box-sizing: border-box;
+  background-color: #999;}
+  
+  .slide_part{
+  --slide-length:4;
+  width: 780px; height:400px;
+  margin: auto;
+  overflow: hidden;
+  background-color: #777;}
+
+  .slide_part > ul{
+    width: 800%;width: calc(100% * var(--slide-length));
+    height: 100%;
+    margin-left: 0;
+    background-color: #ff0;
+  }
+  
+  .slide_part li{
+    float: left;
+    width: 12.5%;
+    width:calc(100% / var(--slide-length));height: 100%;
+  }
+
+  .slide_part li:nth-child(2n){background-color: #aff;}
+  .slide_part li:nth-child(2n+1){background-color: #faf;}

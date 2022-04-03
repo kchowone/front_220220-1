@@ -45,9 +45,10 @@ h1{width: 100%;height: auto;
 .child li:nth-last-child(3n) {font-size: 5px;color: #f00;}
 
 .child li:nth-child(4n+1){text-indent:100px;color: #00a;}
-/* 
-.child li:nth-child(3):nth-child(5){background-image: linear-gradient(#add , #dac);} 
-*/
+
+.child li:nth-child(n+3):nth-child(-n+5){background-image: linear-gradient(#add , #dac);}
+ /*그라디언트 어디서부터~어디까지 할수있는방법 교집합으로...!  */
+
 
 /* ----------------------------------------- */
 .type li:first-of-type {font-weight: 900;}
