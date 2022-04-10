@@ -8,10 +8,32 @@ width:940px;height: 70px;
 margin: auto;margin-bottom: 48px;
 background-color: #aaa;}
 
-.area_indicator{
+.new_indicator{
 position: absolute; bottom:-80px;left: 0;right:0;margin: auto;
-width: 140px; height: 30px; background-color: #fa0;}
+width:500px; height: 30px;text-align: center;
+background-color: #fa0;}
 
-.area_content{
+
+.new_indicator li {display: inline-block;
+width: 30px; height: 30px;
+margin-right: 5px;
+background-color:#adf}
+
+.new_indicator li:last-child{margin-right: 0;}
+
+/* --------------------------------------- */
+.new_content{
+overflow-x: hidden;
 width: 100%; height: 370px;
 background-color: #aaa;}
+
+.new_content ul {width: 400%; height: 100%;}
+
+.new_content li {
+float: left;
+width: 300px; height: 370px;
+margin-right: 20px;
+background-color: var(--color-primary);
+}
+
+.new_content li:last-child{margin-right: 0;}
