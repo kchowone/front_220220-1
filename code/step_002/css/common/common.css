@@ -4,8 +4,14 @@
 .blind{display: block;
   position: absolute; z-index: -1;
   width: 0;height: 0;overflow: hidden;}
+
   /* IR 기법 참조 */
-  
+
+.blind_area a{display: block;
+width: 100%; height: 100%;
+background:var(--path);
+background-repeat: no-repeat;
+background-position: 50% 50%;}
 
 .clearfix{height: auto;}
 .clearfix:after,

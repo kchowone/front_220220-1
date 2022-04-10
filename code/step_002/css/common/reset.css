@@ -24,3 +24,9 @@ header,article,section,aside,nav,footer,main,figure,figcaption {display: block;}
 html,body{color:var(--color-black);
 font-family: var(--font-set);}
 }
+
+a:focus,
+button:focus{ outline: 2px solid #fa0;}
+
+a:hover,
+button:hover{border-bottom: 1px solid #fa0;}
