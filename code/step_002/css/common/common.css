@@ -7,7 +7,8 @@
 
   /* IR 기법 참조 */
 
-.blind_area a{display: block;
+.blind_area a,
+.blind_area button {display: block;
 width: 100%; height: 100%;
 background:var(--path);
 background-repeat: no-repeat;
