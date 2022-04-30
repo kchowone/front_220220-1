@@ -1,4 +1,4 @@
-'sue stritc';
+'use stritc';
 
 // a_06_js_grammer_02.js
 

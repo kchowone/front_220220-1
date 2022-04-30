@@ -51,7 +51,7 @@ btn.addEventListener('click',function(){
 //--------------------------------
 console.clear();
 
-console.log('sample :' ,sample)
+console.log('sample :',sample)
 var sample;
 
 // sample = 100;

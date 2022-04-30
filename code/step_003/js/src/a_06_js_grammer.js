@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 // /a_06_js_grammer.js
 
 // 문법 : 조건문, 반목문
@@ -60,6 +60,9 @@ const areaEl = document.querySelector('.area');
 const areaUlEl = areaEl.querySelector('ul');
 const areaListEl = areaUlEl.querySelectorAll('li');
 const relEl = areaEl.querySelector('.result');
+
+
+
 
 areaListEl.forEach(function(it, index){
   

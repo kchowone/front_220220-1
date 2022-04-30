@@ -46,7 +46,7 @@ let rel3 = num2;
 console.log( rel3 );
 
 rel3 += 1;
-console.log( rel3 );
+console.log(rel3 );
 
 rel3++;//후치, 증가연산
 console.log( rel3 );
@@ -57,9 +57,10 @@ console.log( ++rel3 );
 console.log( ++rel3 );
 console.log( rel3++ );
 console.log( rel3++ );
-console.log( rel3 );
+console.log( 'rel3:', rel3 );
 
 rel3--;
+console.log(rel3);
 --rel3;
 console.log(rel3);
 

@@ -101,7 +101,8 @@ console.log(gndlist[i].name);
 
 
 // let data = ['pen', 'cup' , 'mic']; // //data[2]
-// let data2 = {'pen':'red', 'cup' : 'white', 'mic': 'black'}; //data2['mic'] || data2.mic
+// let data2 = {'pen':'red', 'cup' : 'white', 'mic': 'black'}; 
+  //data2['mic'] || data2.mic
 
 // let data3 = [
 //   {'pen':'red', 'cup' : 'white', 'mic': 'black'}, 
