@@ -56,3 +56,7 @@ for(let i = 0; i < len; i+=1){
 
 // let 아닌 conts를 쓰느냐!
 // for 말고 for in을 왜 안쓰냐
+
+// --------------------------
+console.clear();
+
