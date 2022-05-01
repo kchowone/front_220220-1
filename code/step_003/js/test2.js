@@ -1,2 +1,2 @@
 var par = document.querySelector('p');
-par.style.color = '#f03';
+par.style.color = '#f03'; 
