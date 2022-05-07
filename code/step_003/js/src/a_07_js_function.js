@@ -48,3 +48,4 @@ el.addEventListener('click',evt);
 
 // function -> 선언식, 표현식(익명함수 : 함수, 즉시실행, arrow함수)
 // 객체, 배열, 함수  다음시간
+ 
