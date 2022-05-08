@@ -40,4 +40,7 @@ promise()
 
 // fetch()는 promise를 기반으로, 데이터를 가져올 수 있는냐 없는냐를 판단하여 사용하는 기법.
 
+//@media screen
+//matchMedia
+
 
