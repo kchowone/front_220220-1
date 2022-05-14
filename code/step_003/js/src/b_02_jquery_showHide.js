@@ -45,22 +45,35 @@ if(i >= 1){
 
 
   // 2. btn_02Dt를 클릭시 btn_02Dd를 나타나게(slideDown)
-
+let PERMISSION = true;
 btn_02.on('click',function(event){
 event.preventDefault(); 
 // height: 150px
+if(PERMISSION){
+  PERMISSION = false;
+
+let i = 0;
 let btnDDHeight = btn_02Dd.innerHeight();
-const ddState = btn_02Dd.css('display');
+const ddState = btn_02Dd.css('display') === 'none';
+// ====================================
+// ** jquery 기본형태
 // (ddState === 'none');
 // btn_02Dd.slideDown(timed*2)
 // btn_02Dd.slideUp(timed*2)
-let i = 0;
-if(ddState ==='none'){
+// ====================================
+
+if(ddState){
   i=0;
   btn_02Dd.css({display:'block',height:i, overflow:'hidden'});
   let runInterval = setInterval(()=> {
-  (i < btnDDHeight) ? btn_02Dd.css({height:(i += 1) + 'px'}) : clearInterval(runInterval);
-},timed/100);
+  if(i < btnDDHeight){
+    i += 1;
+    btn_02Dd.css({height:i+'px'})
+    }else{
+    clearInterval(runInterval);
+    PERMISSION = true;
+    }
+  },timed/100);
 
 }else{// ddState !== 'none
   i = btnDDHeight;
@@ -68,12 +81,14 @@ if(ddState ==='none'){
     if(i >= 0){btn_02Dd.css({height:(i -= 1) + 'px'})
   }else{
     clearInterval(runInterval);
-    // btn_02Dd.css({display:'none'});
     btn_02Dd.removeAttr('style');
+    PERMISSION = true;
+    // btn_02Dd.css({display:'none'});
   }  
   },timed/100); //setinterval()
 
 }
+}// PERMISSION
 
 });//btn_02Dt.on('click')
 
@@ -82,3 +97,4 @@ if(ddState ==='none'){
 // innerHeight() 패딩 포함값
 //outerHeight() 패딩 보더 포함값
 //outerHeight(true) - 패딩,보더,마진 포함값
+
