@@ -50,6 +50,7 @@
 /* Border styles */
 
 --border-line_01:1px solid var(--color-light_gray_02);
+--border-line_02:4px solid var(--color-primary_01);
 
 
 }
