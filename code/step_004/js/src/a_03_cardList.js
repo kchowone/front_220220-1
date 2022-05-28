@@ -30,20 +30,10 @@ let elMenuUl = elMenuItems.querySelector('ul');
 let elMenuList = elMenuUl.querySelectorAll('li');//리스트 여러개 잡기위해서 all
 
 const elItems = document.querySelector('.content__area__menu__items');
-elItems.innerHTML = '<ul></ul>';
 let elItemsUl;
 
 // 함수 -------------------------------------------------------
 // 탭메뉴 리스트 기능
-
-
-
-
-
-
-
-
-
 
 
 // 탭메뉴 항목 내용처리 기능
