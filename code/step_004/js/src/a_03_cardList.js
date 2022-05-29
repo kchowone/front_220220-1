@@ -27,10 +27,11 @@ const dataFile = '../data/drink_menu_list.json';
 
 const elMenuItems = document.querySelector('.content__part__menu_type');
 let elMenuUl = elMenuItems.querySelector('ul');
-let elMenuList = elMenuUl.querySelectorAll('li');//리스트 여러개 잡기위해서 all
+let elMenuList //= elMenuUl.querySelectorAll('li');//리스트 여러개 잡기위해서 all
 
 const elItems = document.querySelector('.content__area__menu__items');
 let elItemsUl;
+let TABCOUNT = 0;
 
 // 함수 -------------------------------------------------------
 // 탭메뉴 리스트 기능
@@ -59,7 +60,7 @@ const fnSpanInsert = function(data){
 };
 
 const itemsCode = function(obj){
-  console.log(obj);
+  // console.log(obj);
   // const imagPath = '../img/${obj.path'+'/' + '${obj.filename}';
   const imagPath = `../img/${obj.path}/${obj.filename}`;
   const sliceData = obj.option.split(',');//split로 분리시키겠다 스페이스와 쉼표***
@@ -83,6 +84,13 @@ const fnMakeLi = function(obj){
   elItemsUl.append(makeLi);
 };
 
+// 선택된 li요소의 위치에 class이름(action) 활성화, 나버지 비활성화
+const fnAddActive = function(n){
+  elMenuList.forEach((el,index)=>{
+    (index === n ) ? el.classList.add('action') : el.classList.remove('action');
+  });
+};
+
 // 함수기능 우선 수행 --------------------------------------------------------
 
 
@@ -92,13 +100,18 @@ fetch(dataFile)
 .then(function(data){
   // 탭 리스트
   let arrTabList = [];
-  data.forEach(function(d){
-    let check = arrTabList.includes(d.category);
-    if(!check){
-      arrTabList.push(d.category);
-    }
-  });
-console.log(arrTabList);
+  // data.forEach(function(d){
+  //   let check = arrTabList.includes(d.category);
+  //   if(!check){
+  //     arrTabList.push(d.category);
+  //   }
+  // });  //
+  data.filter(d=>{
+    let check = arrTabList.indexOf(d.category) === -1
+    if(check){arrTabList.push(d.category); }
+  })
+// console.log(arrTabList);
+
 elMenuItems.innerHTML = '<ul></ul>';
 elMenuUl = elMenuItems.querySelector('ul');
 let tabLi;
@@ -106,33 +119,33 @@ arrTabList.forEach((el,index)=>{
   tabLi = document.createElement('li');
   tabLi.innerHTML = `<button type="button">${arrTabList[index]}</button>`
   elMenuUl.append(tabLi);
-  console.log(tabLi);
+  // console.log(tabLi);
 });
 
-
-// let elMenuList = elMenuUl.querySelectorAll('li');
+elMenuList = elMenuUl.querySelectorAll
 
   //탭 내용처리
   const fnFilterContent = (menu) => {
-    let m = menu || '커피류';
-    const dataFilter = fnCategoryFilter(m, data);//console.log( dataFilter);
-
-    // elItemsUl.remove(); //생겼다가 지우고 다시 생겨야 함.
-    elItems.innerHTML = '<ul></ul>';
-    elItemsUl = elItems.querySelector('ul');
+    let m = menu || 0;
+    const dataFilter = fnCategoryFilter(arrTabList[m], data);//console.log( dataFilter);
    
     fnMakeUl();
     dataFilter.forEach(fnMakeLi);
   }
 
+  elMenuList = elMenuUl.querySelectorAll('li');
   fnFilterContent();
+  fnAddActive(TABCOUNT);
 
   elMenuList.forEach((el,index)=>{
     el.addEventListener('click',function(e){
       e.preventDefault();
       // console.log(e.target.innerText);//텍스트콘텐트와의 차이점 알아보기.
-      const menuName = e.target.textContent;
-      fnFilterContent(menuName);
+      // const menuName = e.target.textContent;
+      // fnFilterContent(menuName);
+      fnFilterContent(index);//인덱스가 탭 내용처리 메뉴로 감
+      TABCOUNT = index;
+      fnAddActive(TABCOUNT);
     });
   
   });
@@ -156,23 +169,18 @@ const arrList = [
   {name:'motorora', product:'product_03'},
 ];
 
-const arrList2 = [
-  'samsung',
-  'samsung',
-  'iphone',
-  'iphone',
-  'xaomi',
-  'lg',
-  'motorora',
-  'lg',
-  'motorora',
-  'motorora'
-];
+
   let arrTabList = [];
 
-  arrList.forEach((d,i)=>{
-    let insertCheck = arrTabList.includes(d.name);
-    if(!insertCheck){
+  // arrList.forEach((d,i)=>{
+  //   let insertCheck = arrTabList.includes(d.name);
+  //   if(!insertCheck){
+  //     arrTabList.push(d.name);
+  //   }
+  // });
+
+  arrList.filter((d,i)=>{
+    if(arrTabList.indexOf(d.name) === -1){
       arrTabList.push(d.name);
     }
   });
