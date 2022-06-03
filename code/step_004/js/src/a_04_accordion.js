@@ -15,10 +15,14 @@
 
 
 // 변수------------------------------------------------------------
-const SHEETID = '1gtLNqqnMX4xZsccVNgKCCU7mIHWhnPPuQiAC8Y3acwQ';
-const SHEETNAME = 'accordion';
-const JSONURL = `http://gsx2json.com/api?id=${SHEETID}&sheet=${SHEETNAME}`
-
+const SHEET = {id:'1gtLNqqnMX4xZsccVNgKCCU7mIHWhnPPuQiAC8Y3acwQ', name:'accordion'};
+const JSONURL = `http://gsx2json.com/api?id=${SHEET.id}&sheet=${SHEET.name}`;
+const ACCORDIONCODE = function(number,title, content){
+  return `<dl>
+  <dt><button type="button"><span>${number+1}</span>.<span>${title}</span><i class="fa-solid fa-arrow-down"></i></button></dt>
+  <dd><div class="content">${content}</div></dd>
+  </dl>`
+};
 
 const elAccorArea = document.querySelector('.accordion_area');
 let elAccorDl //= elAccorArea.querySelectorAll('dl');
@@ -29,15 +33,6 @@ let timed = 500;
 
 
 // 함수-----------------------------------------------------------
-const ACCORDIONCODE = function(number,title, content){
-  return `<dl>
-  <dt><button type="button"><span>${number+1}</span>.<span>${title}</span><i class="fa-solid fa-arrow-down"></i></button></dt>
-  <dd><div class="content">${content}</div></dd>
-  </dl>`
-  
-}
-
-
 const fnDdHeightCheck = function(){
   elAccorDl.forEach((el,n)=>{
     const dd =el.querySelector('dd');
@@ -46,11 +41,8 @@ const fnDdHeightCheck = function(){
     setTimeout(()=>{
       checkHeight.push(dd.clientHeight);
       dd.removeAttribute('style');
-    }, 0)
-  
-    
+    }, 0);
   });
-  
 };
 
 const fnSlideDown = function(el,n){
@@ -98,11 +90,12 @@ fetch(JSONURL)
 .then(data=>data.json())
 .then(data=>data.rows)
 .then(jsonData =>{
-  // html 코드 삽입 수핸
+  // html 코드 삽입 수행
   const accordionData = jsonData;
   accordionData.forEach((data, index)=>{
     elAccorArea.insertAdjacentHTML('beforeend',ACCORDIONCODE(index, data.title, data.content));
     // insertAdjacentHTML 검색해보기
+  });
   
   // 기능수행-----------------------------------------
   elAccorDl = elAccorArea.querySelectorAll('dl');
@@ -110,7 +103,6 @@ fetch(JSONURL)
 
 // 이벤트 수행 ------------------------------------------
 // dt클릭시 아코디언 수행
-
 elAccorDl.forEach((el,idx)=>{
   let elDt = el.querySelector('dt');
   elDt.addEventListener('click',function(e){
@@ -119,7 +111,7 @@ elAccorDl.forEach((el,idx)=>{
     (check) ? fnSlideUp(el) : fnRemoveAction(idx)
   });
 })
-  })
+  
 })
 .catch(console.log);
 
