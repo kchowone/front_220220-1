@@ -1,6 +1,8 @@
 @charset "UTF-8";
 /* content.scss */
 // @import "../common/variable";
+
+@use '../common/variable' as *;
 @import "../common/mixin";
 // 한줄주석은 변환x
 
@@ -139,3 +141,7 @@ $coffee : ('americano','cafelatte','moccagold','esspresso');
    } 
    
 }// #contentBox
+
+#wrap{
+  background-color: #add;
+}
