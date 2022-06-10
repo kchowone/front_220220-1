@@ -26,7 +26,7 @@ a > span {
   overflow: hidden;
 }
 
-/* header.css ============================ */
+/* header =============================== */
 #headBox {
   width: 100%;
   height: 100px;
@@ -36,14 +36,14 @@ a > span {
 }
 #headBox .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 100%;
   min-height: 50px;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 h1 {
   width: 150px;
@@ -100,14 +100,14 @@ h1 {
   }
 }
 
-@media all and (min-width: 1023px) {
+@media all and (max-width: 1023px) {
   #headBox .container {
     align-items: flex-start;
   }
   .gnb {
     width: auto;
   }
-  .gnb_btn {
+  .gnb .gnb_btn {
     display: block;
     width: 40px;
     height: 40px;
@@ -119,7 +119,7 @@ h1 {
     width: 100%;
     height: 100%;
   }
-  .gnb button span {
+  .gnb button > span {
     display: block;
     position: absolute;
     z-index: -1;
@@ -133,9 +133,9 @@ h1 {
   }
 }
 /*
-$phone   : 320px;
-$tablet  : 600px;
-$laptop  : 1024px;
+$phone : 320px;
+$tablet : 600px;
+$laptop : 1024px;
 $desktop : 1366px;
 */
 a.full {
@@ -168,7 +168,7 @@ a > span {
 
 #viewBox {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 100%;
   min-height: 50px;
   margin: auto;
@@ -178,7 +178,7 @@ a > span {
 
 #newsBox {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 100%;
   min-height: 50px;
   margin: auto;
@@ -210,12 +210,14 @@ a > span {
 #footBox {
   width: 100%;
   height: 300px;
+  box-sizing: border-box;
+  padding: 10px !important;
   background-color: #333;
 }
 
 .foot__con__area {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 100%;
   min-height: 50px;
   margin: auto;
