@@ -14,7 +14,7 @@ function App() {
     <HeadBox />
 
     <ContentBox />
-
+      
     <FootBox />
     
     </div>

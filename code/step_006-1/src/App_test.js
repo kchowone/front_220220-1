@@ -2,17 +2,6 @@ import './App.css';
 // import를 통해서 src경로를 통해서 image, js, css, data
 
 
-function cilcleList(){
-// image,data,js -> public/
-return (
-  <li className='list'>
-    <div className='img'></div>
-    <p className='t'>전문가 시공사례</p>
-  </li>
-)
-
-}
-
 
 function CardComponent(props){
   console.log(props);
