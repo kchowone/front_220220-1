@@ -1,0 +1,10 @@
+{
+  "url" : "./image/flaction/",
+  "src":[
+  "002-koala.png",
+  "003-turtle.png",
+  "004-livestock.png",
+  "005-lion.png",
+  "006-fox.png"
+  ]
+}
