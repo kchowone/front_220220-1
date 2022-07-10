@@ -1,0 +1,47 @@
+[
+  {
+    "id":1,
+    "img": "card_image_001.jpg",
+    "alt": "설명",
+    "link": "#",
+    "title": "title1",
+    "content":"lorem text"
+  },
+  
+  {
+    "id":2,
+    "img": "card_image_002.jpg",
+    "alt": "설명",
+    "link": "#",
+    "title": "title2",
+    "content":"lorem text"
+  },
+
+  {
+    "id":3,
+    "img": "card_image_003.jpg",
+    "alt": "설명",
+    "link": "#",
+    "title": "title3",
+    "content":"lorem text"
+  },
+  
+  {
+    "id":4,
+    "img": "card_image_004.jpg",
+    "alt": "설명",
+    "link": "#",
+    "title": "title4",
+    "content":"lorem text"
+  },
+  
+  {
+    "id":5,
+    "img": "card_image_005.jpg",
+    "alt": "설명",
+    "link": "#",
+    "title": "title5",
+    "content":"lorem text"
+  }
+
+]

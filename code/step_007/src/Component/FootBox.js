@@ -1,8 +1,11 @@
-import React from 'react'
+import './footBox.scss';
 
 function FootBox() {
   return (
-    <div>FootBox</div>
+    <footer id='footBox'>
+      <h2>FootBox</h2>
+      
+    </footer>
   )
 }
 
