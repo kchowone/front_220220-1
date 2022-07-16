@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './HeadBox.scss'
 
 function HeadBox() {
+  const [at, setAt] = useState(null);
+  const handlerClass =()=> at ==='action' ? setAt(null) : setAt('action');
+  const handlerClassOut =()=> at ==='action' ? setAt(null) : setAt('action')
+
   return (
-    <header id='HeadBox'>HeadBox</header>
+    <header id='HeadBox' 
+    onMouseEnter={handlerClass} 
+    onMouseLeave={handlerClassOut}>
+
+     <span className={at}> HeadBox</span>
+    </header>
   )
 }
 
