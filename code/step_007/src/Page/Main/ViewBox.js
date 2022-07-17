@@ -49,10 +49,13 @@ function ViewBox() {
   }
 
   const startSlide = ()=>{
-    moveSlide.current = setInterval(()=>{handlerNextClick()}, timed)
+    moveSlide.current = setInterval(()=>{
+      handlerNextClick();
+      stopSlide();
+    }, timed)
   }
 
-  const stopSlide = ()=>{
+  function stopSlide(){
     clearInterval(moveSlide.current);
   }
 
@@ -61,8 +64,7 @@ function ViewBox() {
     useEffect ( () =>{
       startSlide();
       return () => stopSlide();
-      
-    })
+    },[count])
 
 
 
