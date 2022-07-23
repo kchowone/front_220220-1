@@ -1,112 +1,89 @@
 import React, { useEffect, useRef, useState } from 'react'
 // import { v4 as uuid} from 'uuid';
 import uuid from 'react-uuid';
-import './ViewBox.scss';
+
 import ViewList from './ViewBox/ViewList'
-// let listdata = {current:null};
+import Buttons from './ViewBox/Buttons';
+import Indicators from './ViewBox/Indicators';
+import SlideWrapper from './ViewBox/SlideWrapper';
+
+
+import ListData from './ViewBox/ListData';
+
+import './ViewBox.scss';
+// let ListData = {current:null};
 
 
 function ViewBox() {
 
-  const total =4;
-  const [count,setCount] = useState(0);
+  const total = ListData.length -1;
   const timed = 1000;
-
-  const moveSlide = useRef();
-
-
-
-  const listData = [{num:1, color:'#adf', id: 'slide_001'},
-  {num:2, color:'#f4a', id: 'slide_002'},
-  {num:3, color:'#af7', id: 'slide_003'},
-  {num:4, color:'#ccf', id: 'slide_004'},
-  {num:5, color:'#faa', id: 'slide_005'}]
-  
+  const [count,setCount] = useState(0);
+  const [intervalState, setIntervalState] = useState(true); //PERMOSSION = true
+  const moveSlide = useRef(null); // moveSlide.current = null
 
 
-
-  // const listData =[1,2,3,4,5];
-  // const listColor =['#adf', '#f4a', '#af7', '#ccf', '#faa'];
-  // const setUUID = [uuid(), uuid(), uuid(), uuid(),uuid()];
 
   useEffect( () => {
     console.log(count);
   },[count]);
 
-  
+  //다음버튼클릭
   const handlerNextClick = (e) =>{
    e && e.preventDefault();
-    count >= total ? setCount(0) : setCount(count + 1);
-    
-
+    // count >= total ? setCount(0) : setCount(count + 1);
+    setCount ( count >= total ? 0 : count + 1);
   }
 
+  //이전버튼클릭
   const handlerPrevClick = (e) =>{
       console.log(e.target);
       e.preventDefault();
-      count <= 0 ? setCount(total) : setCount(count - 1)
+      // count <= 0 ? setCount(ListData.length -1;) : setCount(count - 1)
+      setCount(count <= 0 ? total : count - 1);
     
   }
 
   const startSlide = ()=>{
-    moveSlide.current = setInterval(()=>{
-      handlerNextClick();
-      stopSlide();
-    }, timed)
+    setIntervalState(true);
+    if(moveSlide.current !== null){return}
+    moveSlide.current = setInterval(() => handlerNextClick(), timed)
   }
 
-  function stopSlide(){
+ const stopSlide = () => {
+    setIntervalState(false);
+    if(moveSlide.current === null){return}
     clearInterval(moveSlide.current);
+    moveSlide.current = null
   }
-
-
 
     useEffect ( () =>{
-      startSlide();
+      intervalState && startSlide();
       return () => stopSlide();
-    },[count])
+    },[count, intervalState])
 
 
 
   return (
     <section id='viewBox' onMouseEnter={stopSlide} onMouseLeave={startSlide}>
       <h2 className='blind'>광고 영역</h2>
-        <div className='buttons'>
-          <button type='button' className='next' onClick={handlerNextClick}>
-            <span className='blind'>next</span>
-            </button>
-          <button type='button' className='prev' onClick={handlerPrevClick}>
-            <span className='blind'>prev</span>
-            </button>
-        </div>
-        <div className='indicators'>
-          <ul className='blind_area'>
-              {listData.map((data, index)=>
-               {return ( <li key={uuid()} className={count === index  ? 'action' : null }>
-               <a href='#' onClick={(e)=>{e.preventDefault(); return setCount(index)}}>
-             <span>{index + 1}번째 광고 요약 설명</span></a> 
-           </li> )})}
-          </ul>
-          <p>
-            <span className='now'>{count +1 }</span>
-            /
-            <span className='total'>{total + 1}</span>
-          </p>
-        </div>
 
+      <Buttons 
+      nextEvent ={handlerNextClick}
+      prevEvent={handlerPrevClick}  />
 
-      <div className='slide_wrapper fade_area'>
-        <ul>
-          {listData.map((data,index)=>
-            <ViewList 
-            key={data.id}
-            action ={count === index ? 'action': null}
-            bgColor = {data.color}
-            content={data.num} />
-         )}
-          
-        </ul>
-      </div>
+      <Indicators 
+      ListData = {ListData} 
+      count={count}
+      total = {total}
+      setCount = {setCount}
+      />
+
+      <SlideWrapper
+      ListData = {ListData} 
+      ViewList = {ViewList}
+      count = {count}/>
+     
     </section>
   )
 }
