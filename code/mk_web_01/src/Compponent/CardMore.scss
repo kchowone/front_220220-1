@@ -1,0 +1,15 @@
+// CardMore.scss
+@use '../common/variable' as *;
+@use '../common/mixin';
+
+.cardmoreBox{
+  width: 366px; height: 474px;
+  background-color:darkgoldenrod;
+}
+
+.moreBtn{
+  width:172px;height: 54px;
+  color: white;
+  font-weight: 700;
+  border:1px solid white;
+}

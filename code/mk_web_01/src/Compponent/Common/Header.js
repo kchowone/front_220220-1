@@ -2,7 +2,7 @@ import React from "react";
 import { Link,NavLink } from "react-router-dom";
 import uuid from "react-uuid";
 import './Header.scss';
-
+import ContainerApp from '../ContainerApp';
 
 function Header(){
   const gnbList = [
@@ -19,33 +19,33 @@ function Header(){
 
   return (
     <header id="headBox">
-      <div className="container">
-      <h1><Link to="/">busin</Link></h1>
-      <nav className="serach">serach</nav>
-      <nav className="gnb">
-        <h2 className="blind">global navigation</h2>      
-        <ul>
-          {
-            gnbList.map(
-              list=>
-              <li key={list.id}>
-                <NavLink to={list.link}>
-                {(!list.snippets) ? 
-                list.text : 
-                <abbr title={list.snippets}>{list.text}</abbr>}
-                </NavLink></li>)}
-          
-          {/* <li><NavLink to="about">about us</NavLink></li>
-          <li><NavLink to="work">work</NavLink></li>
-          <li><NavLink to="services">services</NavLink></li>
-          <li><NavLink to="technologies">technologies</NavLink></li>
-          <li><NavLink to="modern">modern</NavLink></li>
-          <li><NavLink to="faq"><abbr title="favorite ans question">faq</abbr></NavLink></li>
-          <li><NavLink to="supports">supports</NavLink></li>
-          <li><NavLink to="blog">blog</NavLink></li> */}
-        </ul>
-      </nav>
-      </div>
+      <ContainerApp>
+        <h1><Link to="/">busin</Link></h1>
+        <nav className="serach">serach</nav>
+        <nav className="gnb">
+          <h2 className="blind">global navigation</h2>      
+          <ul>
+            {
+              gnbList.map(
+                list=>
+                <li key={list.id}>
+                  <NavLink to={list.link}>
+                  {(!list.snippets) ? 
+                  list.text : 
+                  <abbr title={list.snippets}>{list.text}</abbr>}
+                  </NavLink></li>)}
+            
+            {/* <li><NavLink to="about">about us</NavLink></li>
+            <li><NavLink to="work">work</NavLink></li>
+            <li><NavLink to="services">services</NavLink></li>
+            <li><NavLink to="technologies">technologies</NavLink></li>
+            <li><NavLink to="modern">modern</NavLink></li>
+            <li><NavLink to="faq"><abbr title="favorite ans question">faq</abbr></NavLink></li>
+            <li><NavLink to="supports">supports</NavLink></li>
+            <li><NavLink to="blog">blog</NavLink></li> */}
+          </ul>
+        </nav>
+      </ContainerApp>
      
     </header>
   )
