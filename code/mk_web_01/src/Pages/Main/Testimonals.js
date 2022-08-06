@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ContainerApp from '../../Compponent/ContainerApp';
 import './Testimonals.scss'
 
 function Testimonals() {
 
 
-  const cardList = ['r','r','r','r','r','r','r','r'];
-  const [list, setList] = useState(cardList);
-  // for(let i = 0; i < 35; i++){
-  //   setList(list => {...list,})
-  // }
+  const cardList = [];
+  // const [list, setList] = useState(cardList);
+  for(let i = 0; i < 15; i++){
+    cardList.push(i);
+    }
+
+    const indicatorLen = Math.round(cardList.length / 5)
+
+    // round floor ceil abs
+    // console.log(list);
 
   return (
         

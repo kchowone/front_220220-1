@@ -11,32 +11,31 @@ function PricingList(props) {
 
   return (
     <li className={point ? 'point' : null}>
-    <dl>
-      <dt>basic</dt>
-      <dd>
-        <span className='count'>80</span>
-        <span className='unit'>&#36;</span>
-      </dd>
-      <dd className='day_check'>monthly</dd>
-  </dl>
-  <ul>
-    {listData.map((data,index)=>
-     <li>
-       <FontAwesomeIcon 
-       key= {index}
-       icon = {faCheck}
-       style={{color:'#6C73B5', marginRight:'1rem'}}/>
-       {data}
-    </li>
-    )}
-   
-  </ul>
+      <dl>
+        <dt>basic</dt>
+        <dd>
+          <span className='count'>80</span>
+          <span className='unit'>&#36;</span>
+        </dd>
+        <dd className='day_check'>monthly</dd>
+      </dl>
+    <ul>
+      {listData.map((data,index)=>
+        <li key= {index}>
+          <FontAwesomeIcon 
+            icon = {faCheck}
+            style={{color:'#6C73B5', marginRight:'1rem'}} />
+            {data}
+        </li>
+      )}
+    
+    </ul>
 
-  <div className='link'>
-    <a href='#'>sign up</a>
-  </div>
+    <div className='link'>
+      <a href='#'>sign up</a>
+    </div>
 
-  <li className='point'></li>
+    <div className='point'></div>
   </li>
     
   )
